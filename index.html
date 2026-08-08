@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URBANSHADE — Hadal Division Personnel Registration</title>
+<style>
+body{margin:0;background:#070b0f;color:#e5e9ec;font-family:Arial,Helvetica,sans-serif}
+.container{max-width:900px;margin:40px auto;padding:30px;background:#101820;border:1px solid #52606b}
+h1{text-align:center;letter-spacing:8px}
+.subtitle{text-align:center;letter-spacing:3px;color:#aeb7be}
+h2{border-bottom:1px solid #52606b;padding-bottom:10px;margin-top:35px}
+label{display:block;margin-top:18px;margin-bottom:7px;font-weight:bold}
+input[type=text],input[type=number],textarea{width:100%;box-sizing:border-box;padding:12px;background:#080d12;color:white;border:1px solid #46535e}
+textarea{height:100px;resize:vertical}
+.checkbox-group{margin-top:10px}
+.checkbox-group label{font-weight:normal;margin-top:8px}
+.notice{padding:18px;background:#080d12;border:1px solid #46535e;line-height:1.6}
+button{width:100%;margin-top:30px;padding:16px;background:#d7dde1;color:#080b0e;border:none;font-weight:bold;letter-spacing:3px;cursor:pointer}
+button:hover{background:white}
+#error,#success{display:none;margin-top:15px;padding:15px;text-align:center;font-weight:bold}
+#error{color:#ff6255;border:1px solid #ff3b30;background:#180807}
+#success{color:#b9ffb9;border:1px solid #5b9b5b;background:#091409}
+footer{margin-top:35px;padding-top:20px;border-top:1px solid #46535e;text-align:center;color:#8e999f}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>URBANSHADE</h1>
+<div class="subtitle">HADAL DIVISION — PERSONNEL REGISTRATION FORM</div>
+
+<p>
+<strong>DOCUMENT STATUS:</strong> INTERNAL<br>
+<strong>CLEARANCE LEVEL:</strong> [ ]<br>
+<strong>FORM ID:</strong> US-HD-**-**
+</p>
+
+<h2>I. APPLICANT INFORMATION</h2>
+
+<label>Full Name</label>
+<input type="text">
+
+<label>Preferred Name / Codename</label>
+<input type="text">
+
+<label>Age — Minimum Age: 11</label>
+<input type="number" id="age" min="0">
+
+<label>Previous Occupation</label>
+<input type="text">
+
+<label>Reason for Application</label>
+<textarea></textarea>
+
+<h2>II. ASSIGNMENT PREFERENCE</h2>
+<p>Select your preferred department: <strong>one required</strong></p>
+
+<div class="checkbox-group">
+<label><input type="radio" name="department"> Research &amp; Development</label>
+<label><input type="radio" name="department"> Facility Maintenance</label>
+<label><input type="radio" name="department"> Logistics</label>
+<label><input type="radio" name="department"> Security</label>
+<label><input type="radio" name="department"> Medical Division</label>
+<label><input type="radio" name="department"> Information &amp; Records</label>
+<label><input type="radio" name="department"> Hadal Operations</label>
+<label><input type="radio" name="department"> Other</label>
+</div>
+
+<label>Preferred Position</label>
+<input type="text">
+
+<h2>III. SKILLS &amp; EXPERIENCE</h2>
+
+<label>Relevant Skills</label>
+<textarea></textarea>
+
+<label>Previous Experience</label>
+<textarea></textarea>
+
+<label>Special Qualifications</label>
+<textarea></textarea>
+
+<h2>IV. PSYCHOLOGICAL &amp; OPERATIONAL ASSESSMENT</h2>
+
+<label>Are you capable of following orders under stressful conditions?</label>
+<div class="checkbox-group">
+<label><input type="radio" name="stress"> Yes</label>
+<label><input type="radio" name="stress"> No</label>
+<label><input type="radio" name="stress"> Depends on the order</label>
+</div>
+
+<label>Are you willing to work in isolated environments?</label>
+<div class="checkbox-group">
+<label><input type="radio" name="isolated"> Yes</label>
+<label><input type="radio" name="isolated"> No</label>
+</div>
+
+<label>Are you willing to sign a confidentiality agreement?</label>
+<div class="checkbox-group">
+<label><input type="radio" name="confidential"> Yes</label>
+<label><input type="radio" name="confidential"> No</label>
+</div>
+
+<label>Do you understand that Urbanshade operations may involve hazardous environments?</label>
+<div class="checkbox-group">
+<label><input type="radio" name="hazard"> Yes</label>
+<label><input type="radio" name="hazard"> No</label>
+</div>
+
+<h2>V. CONFIDENTIALITY AGREEMENT</h2>
+
+<div class="notice">
+By signing below, I acknowledge that information obtained during my employment with Urbanshade is confidential.
+<br><br>
+I agree not to disclose classified information, facility locations, research data, personnel records, or operational procedures to unauthorized individuals.
+<br><br>
+I understand that access to restricted information is granted only according to my assigned clearance level.
+</div>
+
+<label>Applicant Signature</label>
+<input type="text">
+
+<label>Date</label>
+<input type="text">
+
+<h2>VI. ADMINISTRATIVE USE ONLY</h2>
+
+<div class="notice">
+<strong>APPLICANTS MUST NOT ANSWER THIS SECTION.</strong>
+<br><br>
+This section is reserved for Urbanshade administrative personnel.
+</div>
+
+<label>Application Status</label>
+<div class="checkbox-group">
+<label><input type="radio" name="status"> ACCEPTED</label>
+<label><input type="radio" name="status"> REJECTED</label>
+<label><input type="radio" name="status"> PENDING REVIEW</label>
+<label><input type="radio" name="status"> CLASSIFIED</label>
+</div>
+
+<label>Assigned Clearance</label>
+<input type="text">
+
+<label>Assigned Department</label>
+<input type="text">
+
+<label>Reviewing Officer</label>
+<input type="text">
+
+<label>Officer Signature</label>
+<input type="text">
+
+<button type="button" onclick="submitApplication()">
+SUBMIT PERSONNEL REGISTRATION
+</button>
+
+<div id="error"></div>
+
+<div id="success">
+APPLICATION ACCEPTED FOR REVIEW — STATUS: PENDING REVIEW
+</div>
+
+<footer>
+<strong>URBANSHADE — HADAL DIVISION</strong>
+<br><br>
+"You are expendable. You are not expected to return."
+</footer>
+
+</div>
+
+<script>
+function submitApplication() {
+
+    const error = document.getElementById("error");
+    const success = document.getElementById("success");
+    const age = Number(document.getElementById("age").value);
+
+    error.style.display = "none";
+    success.style.display = "none";
+
+    // AGE CHECK
+    if (!age) {
+        error.innerText =
+            "APPLICATION REJECTED — AGE FIELD IS INCOMPLETE.";
+
+        error.style.display = "block";
+        return;
+    }
+
+    if (age < 11) {
+        error.innerText =
+            "APPLICATION REJECTED — APPLICANTS MUST BE 11 OR OLDER.";
+
+        error.style.display = "block";
+        return;
+    }
+
+    // CHECK ALL TEXT FIELDS AND TEXTAREAS
+    const applicantFields = document.querySelectorAll(
+        'input[type="text"]:not([name="admin"]), input[type="number"], textarea'
+    );
+
+    // Only applicant fields are required. Administrative fields must remain blank.
+    for (const field of applicantFields) {
+
+        if (!field.value.trim()) {
+
+            error.innerText =
+                "APPLICATION REJECTED — INCOMPLETE ANSWERS DETECTED. PLEASE COMPLETE ALL APPLICANT FIELDS.";
+
+            error.style.display = "block";
+            field.focus();
+            return;
+        }
+    }
+
+    // CHECK APPLICANT RADIO GROUPS ONLY
+    const radioGroups = [
+        "department",
+        "stress",
+        "isolated",
+        "confidential",
+        "hazard"
+    ];
+
+    for (const group of radioGroups) {
+
+        const selected = document.querySelector(
+            'input[name="' + group + '"]:checked'
+        );
+
+        if (!selected) {
+
+            error.innerText =
+                "APPLICATION REJECTED — AN INCOMPLETE QUESTION WAS DETECTED. PLEASE ANSWER EVERY APPLICANT QUESTION.";
+
+            error.style.display = "block";
+            return;
+        }
+    }
+
+    // ALL QUESTIONS COMPLETED
+    success.innerText =
+        "APPLICATION ACCEPTED FOR REVIEW — STATUS: PENDING REVIEW";
+
+    success.style.display = "block";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
